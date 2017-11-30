@@ -5,9 +5,9 @@ import {
   View
 } from 'react-native'
 
-const Button = ({ onPress, title }) => {
-  return(
-    <TouchableOpacity onPress={onPress} style={styles.wrapper}>
+const Button = ({ onPress, title, style }) => {
+  return (
+    <TouchableOpacity onPress={onPress} style={[styles.wrapper, {...style}]}>
       <Text style={styles.title}>
         {title}
       </Text>
@@ -18,7 +18,7 @@ const Button = ({ onPress, title }) => {
 const styles = {
   wrapper: {
     backgroundColor: '#212121',
-    padding:10,
+    padding: 15,
   },
 
   title: {

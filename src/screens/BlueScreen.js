@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {
   Platform,
@@ -10,14 +11,33 @@ import {
 import Button from '../components/common/Button'
 
 
-export default class Home extends Component {
+export default class BlueScreen extends Component {
 
-  _onPressGreenScreenButton = () => {
-    this.props.navigator.push({
-      screen: 'GreenScreen',
-      title: 'Push'
-    })
+  static navigatorButtons = {
+    rightButtons: [
+      {
+        title: 'Close',
+        id: 'dismissModal',
+      }
+    ]
   }
+
+  constructor(props) {
+    super(props)
+
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+  }
+
+  onNavigatorEvent = (event) => {
+    if(event.type === 'NavBarButtonPress') {
+      if(event.id === 'dismissModal') {
+        this.props.navigator.dismissModal({
+          animationType: 'slide-down' // 'none' / 'slide-down' , dismiss animation for the modal (optional, default 'slide-down')
+        });
+      }
+    }
+  }
+
   _onPressBlueScreenButton = () => {
     this.props.navigator.showModal({
       screen: 'BlueScreen',
@@ -29,14 +49,9 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Hello React Native Navigation !
+          BlueScreen
         </Text>
         <Button
-          title={'Push'}
-          onPress={this._onPressGreenScreenButton}
-        />
-        <Button
-          style={{ marginTop: 10 }}
           title={'Modal'}
           onPress={this._onPressBlueScreenButton}
         />
@@ -50,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#009688',
+    backgroundColor: '#00BCD4',
   },
   welcome: {
     fontSize: 20,

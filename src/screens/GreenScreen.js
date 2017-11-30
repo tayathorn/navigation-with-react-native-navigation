@@ -9,22 +9,22 @@ import {
 import Button from '../components/common/Button'
 
 
-export default class FirstScreen extends Component {
-  _onPressFirstScreenButton = () => {
+export default class GreenScreen extends Component {
+  _onPressGreenScreenButton = () => {
     this.props.navigator.push({
-      screen: 'FirstScreen',
-      title: 'FirstScreen'
+      screen: 'GreenScreen',
+      title: 'Push'
     })
   }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          FirstScreen
+          GreenScreen
         </Text>
         <Button
-          title={'First Screen'}
-          onPress={this._onPressFirstScreenButton}
+          title={'Push'}
+          onPress={this._onPressGreenScreenButton}
         />
       </View>
     );
