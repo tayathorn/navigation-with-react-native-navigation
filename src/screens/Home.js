@@ -13,9 +13,14 @@ import Button from '../components/common/Button'
 export default class Home extends Component {
 
   _onPressGreenScreenButton = () => {
-    this.props.navigator.push({
+    const { navigator, testID } = this.props
+
+    navigator.push({
       screen: 'GreenScreen',
-      title: 'Push'
+      title: 'Push',
+      passProps: {
+        fromView: testID,
+      }
     })
   }
   _onPressBlueScreenButton = () => {
