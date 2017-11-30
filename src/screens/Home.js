@@ -9,6 +9,8 @@ import {
 
 import Button from '../components/common/Button'
 
+import { DefaultStyle, ModalStyle } from '../screens/styles/NavigatorStyles'
+
 
 export default class Home extends Component {
 
@@ -26,7 +28,11 @@ export default class Home extends Component {
   _onPressBlueScreenButton = () => {
     this.props.navigator.showModal({
       screen: 'BlueScreen',
-      title: 'Modal'
+      title: 'Modal',
+      navigatorStyle: { ...ModalStyle },
+      passProps: {
+        navigatorStyle: { ...ModalStyle },
+      }
     })
   }
 

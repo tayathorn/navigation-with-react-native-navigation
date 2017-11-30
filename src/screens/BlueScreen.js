@@ -44,12 +44,17 @@ export default class BlueScreen extends Component {
   }
 
   _onPressBlueScreenButton = () => {
-    this.props.navigator.showModal({
+    const { navigator, navigatorStyle } = this.props
+    navigator.showModal({
       screen: 'BlueScreen',
-      title: 'Modal'
+      title: 'Modal',
+      navigatorStyle,
+      passProps: {
+        navigatorStyle,
+      }
     })
   }
-  
+
   _onPresstoggleNavBarButton = () => {
     console.log('[STATE] -- showNavbar : ', this.state.showNavbar)
     this.setState({
@@ -69,6 +74,7 @@ export default class BlueScreen extends Component {
   }
 
   render() {
+    console.log('[PROPS] -- this.props : ', this.props)
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
