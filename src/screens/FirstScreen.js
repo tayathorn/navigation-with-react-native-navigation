@@ -3,27 +3,24 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
-  TouchableOpacity,
+  View
 } from 'react-native';
 
 import Button from '../components/common/Button'
 
 
-export default class Home extends Component {
-
+export default class FirstScreen extends Component {
   _onPressFirstScreenButton = () => {
     this.props.navigator.push({
       screen: 'FirstScreen',
       title: 'FirstScreen'
     })
   }
-
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Hello React Native Navigation !
+          FirstScreen
         </Text>
         <Button
           title={'First Screen'}
@@ -39,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#009688',
+    backgroundColor: '#4CAF50',
   },
   welcome: {
     fontSize: 20,

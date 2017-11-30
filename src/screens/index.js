@@ -1,7 +1,9 @@
 import { Navigation } from 'react-native-navigation'
 
 import Home from './Home'
+import FirstScreen from './FirstScreen'
 
 export function registerScreens() {
-  Navigation.registerComponent('test', () => Home)
+  Navigation.registerComponent('Home', () => Home)
+  Navigation.registerComponent('FirstScreen', () => FirstScreen)
 }
