@@ -49,6 +49,7 @@ export default class BlueScreen extends Component {
       title: 'Modal'
     })
   }
+  
   _onPresstoggleNavBarButton = () => {
     console.log('[STATE] -- showNavbar : ', this.state.showNavbar)
     this.setState({
@@ -60,8 +61,11 @@ export default class BlueScreen extends Component {
         animated: true
       })
     })
-
-
+  }
+  _onPressDismissAllModals = () => {
+    this.props.navigator.dismissAllModals({
+      animationType: 'slide-down'
+    })
   }
 
   render() {
@@ -77,6 +81,11 @@ export default class BlueScreen extends Component {
         <Button
           title={'toggleNavBar'}
           onPress={this._onPresstoggleNavBarButton}
+          style={{ marginTop: 5 }}
+        />
+        <Button
+          title={'Dismiss All Modal'}
+          onPress={this._onPressDismissAllModals}
           style={{ marginTop: 5 }}
         />
       </View>
