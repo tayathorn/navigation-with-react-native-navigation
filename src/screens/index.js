@@ -1,11 +1,11 @@
 import { Navigation } from 'react-native-navigation'
 
 import Home from './Home'
-import GreenScreen from './GreenScreen'
+import Message from './Message'
 import BlueScreen from './BlueScreen'
 
 export function registerScreens() {
   Navigation.registerComponent('Home', () => Home)
-  Navigation.registerComponent('GreenScreen', () => GreenScreen)
+  Navigation.registerComponent('Message', () => Message)
   Navigation.registerComponent('BlueScreen', () => BlueScreen)
 }
