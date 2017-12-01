@@ -5,52 +5,27 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 
-import Button from '../components/common/Button'
+import { DefaultStyle } from '../screens/styles/NavigatorStyles'
 
-import { DefaultStyle, ModalStyle } from '../screens/styles/NavigatorStyles'
-
+const NAME = 'Tayathorn'
 
 export default class Home extends Component {
-
-  _onPressGreenScreenButton = () => {
-    const { navigator, testID } = this.props
-
-    navigator.push({
-      screen: 'GreenScreen',
-      title: 'Push',
-      passProps: {
-        fromView: testID,
-      }
-    })
-  }
-  _onPressBlueScreenButton = () => {
-    this.props.navigator.showModal({
-      screen: 'BlueScreen',
-      title: 'Modal',
-      navigatorStyle: { ...ModalStyle },
-      passProps: {
-        navigatorStyle: { ...ModalStyle },
-      }
-    })
-  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Hello React Native Navigation !
-        </Text>
-        <Button
-          title={'Push'}
-          onPress={this._onPressGreenScreenButton}
+        <Image
+          style={styles.backdrop}
+          source={{ uri: 'https://lh3.googleusercontent.com/hMhDEKgJykklyEFU5CiuWjdboLrAhj3MsGmLGTrNLEIvs28YNTDxWHmQmasFCCpPXQ=h900' }}
         />
-        <Button
-          style={{ marginTop: 10 }}
-          title={'Modal'}
-          onPress={this._onPressBlueScreenButton}
-        />
+        <View style={styles.welcomeWrapper} >
+          <Text style={styles.header} >Hi</Text>
+          <Text style={styles.title} >{NAME}</Text>
+        </View>
+       
       </View>
     );
   }
@@ -61,17 +36,28 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#009688',
+    backgroundColor: 'transparent',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#FAFAFA',
+
+  backdrop: {
+    flex: 1,
+    height: undefined,
+    width: undefined,
+    alignSelf: 'stretch'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  welcomeWrapper: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+  header: {
+    fontSize: 60,
+    color: '#FDFDFD',
+    fontWeight: 'bold',
+  },
+  title: {
+    fontSize: 40,
+    color: '#FDFDFD',
+    fontWeight: 'bold',
+  }
 });
